@@ -135,3 +135,6 @@ ghosts.forEach(ghost => {
   squares[ghost.currentIndex].classList.add(ghost.className)
   squares[ghost.currentIndex].classList.add('ghost')
 })
+
+//move ghosts randomly
+ghosts.forEach(ghost => moveGhost(ghost))
