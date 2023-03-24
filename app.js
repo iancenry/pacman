@@ -112,4 +112,13 @@ function pacDotEaten(){
   }
 }
 
-//create our Ghost template
+//create our Ghost template - speed(milliseconds)
+class Ghost{
+  constructor(className, startIndex, speed){
+    this.className = className;
+    this.startIndex = startIndex;
+    this.speed = speed
+    this.currentIndex = startIndex
+    this.timerId = Nan
+  }
+}
