@@ -138,3 +138,7 @@ ghosts.forEach(ghost => {
 
 //move ghosts randomly
 ghosts.forEach(ghost => moveGhost(ghost))
+
+function moveGhost(){
+  
+}
