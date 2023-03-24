@@ -46,6 +46,11 @@
     border: 0px;
 }
 
+.scared-ghost{
+    background-color: aquamarine;
+    border: 0px;
+}
+
 .pac-man{
     background-color: yellow;
     border-radius: 10px;
