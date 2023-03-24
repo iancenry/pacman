@@ -96,7 +96,7 @@ function movePacman(e) {
 
   squares[pacmanCurrentIndex].classList.add('pac-man')
 
-  //pacDotEaten()
+  pacDotEaten()
   //powerPelletEaten()
   //checkForWin()
 }
@@ -104,6 +104,12 @@ function movePacman(e) {
 document.addEventListener('keyup', movePacman)
 
 
+function pacDotEaten(){
+  if(squares[pacmanCurrentIndex].classList.contains('pac-dot')){
+    score++
+    scoreDisplay.innerHTML = score
+    squares[pacmanCurrentIndex].classList.remove('pac-dot')
+  }
+}
 
-
-
+//create our Ghost template
