@@ -27,7 +27,28 @@
     border-radius: 10px;
 }
 
+.blinky{
+    background-color: red;
+    /*overwrite the previous stylingof the pacc dot that had a border of 5px */
+    border: 0px;
+}
+
+.pinky{
+    background-color: pink;
+    border: 0px;
+}
+.inky{
+    background-color: cyan;
+    border: 0px;
+}
+.clyde{
+    background-color: orange;
+    border: 0px;
+}
+
 .pac-man{
     background-color: yellow;
     border-radius: 10px;
 }
+
+
