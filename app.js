@@ -48,7 +48,7 @@ function createBoard(){
     const square = document.createElement('div');
     grid.appendChild(square)
     squares.push(square)   
-     //add layout to the board
+     //add styling to the divs on the board
      if(layout[i] === 0){
       squares[i].classList.add('pac-dot')
     }else if(layout[i] === 1) {
@@ -60,5 +60,9 @@ function createBoard(){
 }
 
 createBoard()
+
+//starting position of pac-man
+let pacmanCurrentIndex = 490
+squares[pacmanCurrentIndex].classList.add('pac-man')
 
 
