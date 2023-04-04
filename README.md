@@ -1,5 +1,5 @@
 # Pacman Game
-- This is a pacman game made with vanill js.
+- This is a pacman game made with vanilla js and some AI.
 
 ## Quick Setup
 1. Fork then clone the project into local machine 🍴
