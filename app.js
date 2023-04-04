@@ -70,7 +70,7 @@ createBoard()
 let pacmanCurrentIndex = 490
 squares[pacmanCurrentIndex].classList.add('pac-man')
 
-//move pac-man with key codes
+//move pac-man with keyboard events
 function movePacman(e) {
   //remove pacman from square you are currently in
   squares[pacmanCurrentIndex].classList.remove('pac-man')
@@ -132,7 +132,7 @@ const ghosts = [
   new Ghost('clyde', 379, 500)
 ]
 
-//draw my ghosts onto the grid
+//draw ghosts onto the grid
 ghosts.forEach(ghost => {
   squares[ghost.currentIndex].classList.add(ghost.className)
   squares[ghost.currentIndex].classList.add('ghost')
