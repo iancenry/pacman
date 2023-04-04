@@ -7,3 +7,6 @@
 1. Happy coding 💻
 
 * Dependencies used: 
+
+> TODO Implement AI
+> TODO add environment vars
