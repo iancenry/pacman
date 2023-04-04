@@ -1,7 +1,7 @@
 .grid{
     display: flex;
     flex-wrap: wrap;
-    /* will be grid of 25*25 squares */
+    /* grid of 25*25 squares */
     width: 560px;
     height: 560px;
     border: solid #000;
@@ -29,7 +29,7 @@
 
 .blinky{
     background-color: red;
-    /*overwrite the previous stylingof the pacc dot that had a border of 5px */
+    /*overwrite the previous styling of the pacc dot that had a border of 5px */
     border: 0px;
 }
 
