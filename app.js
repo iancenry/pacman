@@ -1,6 +1,6 @@
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
-  width = 28 // 28*28 = 784 squares
+  width = 28 // 28 * 28 = 784 squares
 let score = 0;
 
 // a grid with 784 squares
@@ -35,11 +35,13 @@ const layout = [
   1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 ]
 
-//Key
-//0 - pac-dot
-//1 - wall
-//3 - power-pellet
-//4 - empty
+/**
+ *    Key
+ * 0 - pac-dot
+ * 1 - wall
+ * 3 - power-pellet
+ * 4 - empty
+ */
 
 const squares = []
 
