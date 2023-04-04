@@ -141,6 +141,7 @@ ghosts.forEach(ghost => {
 //move ghosts randomly
 ghosts.forEach(ghost => moveGhost(ghost))
 
-function moveGhost(){
-  
+function moveGhost(ghost){
+  // can go 1 index back, 1 index forward 1 index down, 1 square up(-width)
+    
 }
