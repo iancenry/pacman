@@ -100,6 +100,7 @@ function movePacman(e) {
 
   pacDotEaten()
   //powerPelletEaten()
+  //checkForGameOver()
   //checkForWin()
 }
 
@@ -113,6 +114,15 @@ function pacDotEaten(){
     squares[pacmanCurrentIndex].classList.remove('pac-dot')
   }
 }
+
+//what happens when you eat a power-pellet - pac-man can hurt them
+function powerPelletEaten(){
+  if(squares[pacmanCurrentIndex].classList.contains('power-pellet')){
+    score += 10
+    ghosts.forEach(ghost => ghost.isScared = true)
+  }
+}
+
 
 //create our Ghost template - speed(milliseconds)
 class Ghost{
