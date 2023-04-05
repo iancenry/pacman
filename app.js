@@ -100,7 +100,7 @@ function movePacman(e) {
 
   pacDotEaten()
   powerPelletEaten()
-  //checkForGameOver()
+  checkForGameOver()
   //checkForWin()
 }
 
@@ -182,13 +182,22 @@ function moveGhost(ghost){
     if(ghost.isScared) squares[ghost.currentIndex].classList.add('scared-ghost')
     
     //if ghost's scared and pacman runs into it
-    if(ghost.isScared && squares[ghost.currentIndex].classList.contains('pac-man')) squares[ghost.currentIndex].classList.add(ghost.className, 'ghost', 'scared-ghost')
-    ghost.currentIndex = ghost.startIndex
-    score += 100
-    squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
-
-
+    if(ghost.isScared && squares[ghost.currentIndex].classList.contains('pac-man')){
+        squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
+        ghost.currentIndex = ghost.startIndex
+        score += 100
+        squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
+  }
 
   }, ghost.speed)
     
+}
+
+//check for game over
+function checkForGameOver(){
+  if(squares[pacmanCurrentIndex].classList.contains('ghost') && !squares[pacmanCurrentIndex].classList.contains('scared-ghost')){
+    ghost.forEach(ghost => clearInterval(ghost.timerId))
+    document.removeEventListener('keyup', movePacman)
+    setTimeout(() => alert('Game Over'), 500)
+  }
 }
