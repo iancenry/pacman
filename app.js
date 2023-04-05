@@ -158,6 +158,7 @@ ghosts.forEach(ghost => {
 //move ghosts randomly
 ghosts.forEach(ghost => moveGhost(ghost))
 
+
 function moveGhost(ghost){
   // can go 1 index back, 1 index forward 1 index down, 1 square down(width), 1 square up
   const directions = [-1, +1, width, -width]
@@ -169,6 +170,17 @@ function moveGhost(ghost){
       //you can go here
       //remove all ghost related classes
       squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
+
+      //check if the new location/space is closer to pacman
+      const [ghostX, ghostY] = getCoordinates(ghost.currentIndex)
+      const [pacmanX, pacmanY] = getCoordinates(pacmanCurrentIndex)
+      const [ghostNewX, ghostNewY] = getCoordinates(ghost.currentIndex + direction) //next move
+
+      function isXCoordCloser(){
+        return (ghostNewX - pacmanX) > (ghostX - pacmanX);
+      }
+
+
       //change the currentINdex to the new safe square
       ghost.currentIndex +=  direction
       //redraw the ghost in the new safe space
@@ -211,3 +223,13 @@ function checkForWin(){
     scoreDisplay.innerHTML = 'YOU WON'
   }
 }
+
+//get coordinates of pacman or ghost so as to check if the difference between x coordinates and y coordinates is getting smaller, if it is then it is heading in the right direction
+function getCoordinates(index){
+  return [index % width, Math.floor(index/width)]
+}
+
+ghosts.forEach(ghost => {
+  console.log(getCoordinates(ghost.currentIndex))
+})
+
