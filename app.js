@@ -142,6 +142,24 @@ ghosts.forEach(ghost => {
 ghosts.forEach(ghost => moveGhost(ghost))
 
 function moveGhost(ghost){
-  // can go 1 index back, 1 index forward 1 index down, 1 square up(-width)
+  // can go 1 index back, 1 index forward 1 index down, 1 square down(width), 1 square up
+  const directions = [-1, +1, width, -width]
+  let direction =  directions[Math.floor(Math.random() * directions.length)]
+
+  ghost.timerId = setInterval(()=>{
+    //if next square your ghost is going to go in does not contain a wall and a ghost, you can go there
+    if(!squares[ghost.currentIndex + direction].classList.contains('wall') && !squares[ghost.currentIndex + direction].classList.contains('ghost')){
+      //you can go here
+      //remove all ghost related classes
+      squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
+      //change the currentINdex to the new safe square
+      ghost.currentIndex +=  direction
+      //redraw the ghost in the new safe space
+      squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
+   
+
+      //else find a new direction to try
+    }else direction = directions[Math.floor(Math.random() * directions.length)]
+  }, ghost.speed)
     
 }
