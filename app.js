@@ -138,6 +138,7 @@ class Ghost{
     this.speed = speed
     this.currentIndex = startIndex
     this.timerId = NaN
+    this.isScared = false
   }
 }
 
@@ -176,6 +177,11 @@ function moveGhost(ghost){
 
       //else find a new direction to try
     }else direction = directions[Math.floor(Math.random() * directions.length)]
+
+    //if ghost is currently scared
+    if(ghost.isScared){
+      squares[ghost.currentIndex].classList.add('scared-ghost')
+    }
   }, ghost.speed)
     
 }
