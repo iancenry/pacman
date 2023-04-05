@@ -179,9 +179,13 @@ function moveGhost(ghost){
     }else direction = directions[Math.floor(Math.random() * directions.length)]
 
     //if ghost is currently scared
-    if(ghost.isScared){
-      squares[ghost.currentIndex].classList.add('scared-ghost')
-    }
+    if(ghost.isScared) squares[ghost.currentIndex].classList.add('scared-ghost')
+    
+    //if ghost's scared and pacman runs into it
+    if(ghost.isScared && squares[ghost.currentIndex].classList.contains('pac-man')) squares[ghost.currentIndex].classList.add(ghost.className, 'ghost', 'scared-ghost')
+
+
+
   }, ghost.speed)
     
 }
