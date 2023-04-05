@@ -183,6 +183,9 @@ function moveGhost(ghost){
     
     //if ghost's scared and pacman runs into it
     if(ghost.isScared && squares[ghost.currentIndex].classList.contains('pac-man')) squares[ghost.currentIndex].classList.add(ghost.className, 'ghost', 'scared-ghost')
+    ghost.currentIndex = ghost.startIndex
+    score += 100
+    squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
 
 
 
