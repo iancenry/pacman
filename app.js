@@ -170,21 +170,6 @@ function moveGhost(ghost){
       //you can go here
       //remove all ghost related classes
       squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
-
-      //check if the new location/space is closer to pacman --make smart moves
-      const [ghostX, ghostY] = getCoordinates(ghost.currentIndex)
-      const [pacmanX, pacmanY] = getCoordinates(pacmanCurrentIndex)
-      const [ghostNewX, ghostNewY] = getCoordinates(ghost.currentIndex + direction) //next move
-
-      function isXCoordCloser(){
-        return (ghostNewX - pacmanX) > (ghostX - pacmanX);
-      }
-
-      function isYCoordCloser(){
-        return (ghostNewY - pacmanY) > (ghostY - pacmanY);
-      }
-
-
       //change the currentINdex to the new safe square
       ghost.currentIndex +=  direction
       //redraw the ghost in the new safe space
@@ -226,9 +211,4 @@ function checkForWin(){
     document.removeEventListener('keyup', movePacman)
     scoreDisplay.innerHTML = 'YOU WON'
   }
-}
-//ghost to make smart moves instead of randomly
-//get coordinates of pacman or ghost so as to check if the difference between x coordinates and y coordinates is getting smaller, if it is then it is heading in the right direction
-function getCoordinates(index){
-  return [index % width, Math.floor(index/width)]
 }
