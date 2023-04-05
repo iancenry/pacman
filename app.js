@@ -99,7 +99,7 @@ function movePacman(e) {
   squares[pacmanCurrentIndex].classList.add('pac-man')
 
   pacDotEaten()
-  //powerPelletEaten()
+  powerPelletEaten()
   //checkForGameOver()
   //checkForWin()
 }
@@ -120,9 +120,15 @@ function powerPelletEaten(){
   if(squares[pacmanCurrentIndex].classList.contains('power-pellet')){
     score += 10
     ghosts.forEach(ghost => ghost.isScared = true)
+    setTimeout(unScareGhosts, 10000)
+    squares[pacmanCurrentIndex].classList.remove('power-pellet')
   }
 }
 
+//make the ghosts stop appearing as aquamarine
+function unScareGhosts(){
+  ghosts.forEach(ghost => ghost.isScared = false)
+}
 
 //create our Ghost template - speed(milliseconds)
 class Ghost{
