@@ -54,6 +54,7 @@ function createBoard() {
     //add styling to the divs on the board
     if (layout[i] === 0) {
       squares[i].classList.add('pac-dot')
+      squares[i].innerHTML = '.'
     } else if (layout[i] === 1) {
       squares[i].classList.add('wall')
     }else if(layout[i] === 2){
@@ -78,7 +79,10 @@ function movePacman(e) {
   switch (e.key) {
     case 'ArrowLeft':
       //check if pacman is in a square where the number is divisible by  the width and doesn't leave a reminder of 0
-      if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall') && !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair')) pacmanCurrentIndex -= 1
+      if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall') && !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair')) {
+        pacmanCurrentIndex -= 1
+        squares[pacmanCurrentIndex].classList.add('pac-man-left')
+      }
       //check if pacman is in the left exit
       if((pacmanCurrentIndex - 1) === 363) pacmanCurrentIndex = 391
       break
