@@ -67,6 +67,14 @@ function createBoard() {
 
 createBoard()
 
+function removePacman() {
+  squares[pacmanCurrentIndex].classList.remove('pac-man')
+  squares[pacmanCurrentIndex].classList.remove('pac-man-right')
+  squares[pacmanCurrentIndex].classList.remove('pac-man-left')
+  squares[pacmanCurrentIndex].classList.remove('pac-man-down')
+  squares[pacmanCurrentIndex].classList.remove('pac-man-up')
+}
+
 //starting position of pac-man
 let pacmanCurrentIndex = 490
 squares[pacmanCurrentIndex].classList.add('pac-man')
@@ -74,27 +82,44 @@ squares[pacmanCurrentIndex].classList.add('pac-man')
 function goLeft(){
   //check if pacman is in a square where the number is divisible by  the width and doesn't leave a reminder of 0
   if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall') && !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair')) {
+    removePacman()
     pacmanCurrentIndex -= 1
-    //TODO fix - try removing the class in the prev location after a move
-    squares[pacmanCurrentIndex].classList.add('pac-man-left')
+    //check if pacman is in the left exit
+    if((pacmanCurrentIndex - 1) === 363) pacmanCurrentIndex = 391
+    
   }
-  //check if pacman is in the left exit
-  if((pacmanCurrentIndex - 1) === 363) pacmanCurrentIndex = 391
+  squares[pacmanCurrentIndex].classList.add('pac-man')
+  squares[pacmanCurrentIndex].classList.add('pac-man-left')
 }
 
 function goUp(){
   //if pacman is currently in a square where the index num if you take away 28(width) and it's > 0 you're allowed to keep moving up(one whole width down the array)
-  if (pacmanCurrentIndex - width >= 0 && !squares[pacmanCurrentIndex - width].classList.contains('wall') && !squares[pacmanCurrentIndex - width].classList.contains('ghost-lair')) pacmanCurrentIndex -= width
+  if (pacmanCurrentIndex - width >= 0 && !squares[pacmanCurrentIndex - width].classList.contains('wall') && !squares[pacmanCurrentIndex - width].classList.contains('ghost-lair')) {
+    removePacman()
+    pacmanCurrentIndex -= width
+  }
+  squares[pacmanCurrentIndex].classList.add('pac-man')
+  squares[pacmanCurrentIndex].classList.add('pac-man-up')
 }
 
 function goRight(){
-  if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall') && !squares[pacmanCurrentIndex + 1].classList.contains('ghost-lair')) pacmanCurrentIndex += 1
-  //check if pacman is in the right exit
-  if((pacmanCurrentIndex + 1) === 392) pacmanCurrentIndex = 364
+  if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall') && !squares[pacmanCurrentIndex + 1].classList.contains('ghost-lair')){
+    removePacman()
+    pacmanCurrentIndex += 1
+    //check if pacman is in the right exit
+    if((pacmanCurrentIndex + 1) === 392) pacmanCurrentIndex = 364
+  }
+  squares[pacmanCurrentIndex].classList.add('pac-man')
+  squares[pacmanCurrentIndex].classList.add('pac-man-right')  
 }
 
 function goDown(){
-  if (pacmanCurrentIndex + width < width * width && !squares[pacmanCurrentIndex + width].classList.contains('wall') && !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair')) pacmanCurrentIndex += width
+  if (pacmanCurrentIndex + width < width * width && !squares[pacmanCurrentIndex + width].classList.contains('wall') && !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair')){
+    removePacman()
+    pacmanCurrentIndex += width        
+  }
+  squares[pacmanCurrentIndex].classList.add('pac-man')
+  squares[pacmanCurrentIndex].classList.add('pac-man-down')
 
 }
 
