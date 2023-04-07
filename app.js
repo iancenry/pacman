@@ -1,4 +1,4 @@
-
+//TODO what are these for: gameOverId, checkWinId, leftId, rightId, upId, downId
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
   startButton = document.getElementById('start-button'),
@@ -71,6 +71,7 @@ createBoard()
 
 function startGame() {
   //move the Ghosts randomly
+  //TODO try adding smart moves
   ghosts.forEach(ghost => moveGhost(ghost))
   document.addEventListener('keyup', movePacman)
 }
