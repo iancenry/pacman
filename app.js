@@ -1,5 +1,7 @@
+
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
+  startButton = document.getElementById('start-button'),
   width = 28 // 28 * 28 = 784 squares
 let score = 0;
 
@@ -67,6 +69,18 @@ function createBoard() {
 
 createBoard()
 
+function startGame() {
+  //move the Ghosts randomly
+  ghosts.forEach(ghost => moveGhost(ghost))
+  document.addEventListener('keyup', movePacman)
+}
+startButton.addEventListener('click', startGame)
+
+//starting position of pac-man
+let pacmanCurrentIndex = 490
+squares[pacmanCurrentIndex].classList.add('pac-man')
+squares[pacmanCurrentIndex].classList.add('pac-man-right')
+
 function removePacman() {
   squares[pacmanCurrentIndex].classList.remove('pac-man')
   squares[pacmanCurrentIndex].classList.remove('pac-man-right')
@@ -75,9 +89,6 @@ function removePacman() {
   squares[pacmanCurrentIndex].classList.remove('pac-man-up')
 }
 
-//starting position of pac-man
-let pacmanCurrentIndex = 490
-squares[pacmanCurrentIndex].classList.add('pac-man')
 
 function goLeft(){
   //check if pacman is in a square where the number is divisible by  the width and doesn't leave a reminder of 0
@@ -150,8 +161,6 @@ function movePacman(e) {
   checkForGameOver()
   checkForWin()
 }
-
-document.addEventListener('keyup', movePacman)
 
 
 function pacDotEaten(){
