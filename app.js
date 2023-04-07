@@ -117,6 +117,7 @@ function pacDotEaten(){
     score++
     scoreDisplay.innerHTML = score
     squares[pacmanCurrentIndex].classList.remove('pac-dot')
+    squares[pacmanCurrentIndex].innerHTML = ''
   }
 }
 
@@ -161,7 +162,7 @@ ghosts.forEach(ghost => {
 })
 
 //move ghosts randomly
-ghosts.forEach(ghost => moveGhost(ghost))
+// ghosts.forEach(ghost => moveGhost(ghost))
 
 
 function moveGhost(ghost){
@@ -174,7 +175,7 @@ function moveGhost(ghost){
       //you can go here
       //remove all ghost related classes
       squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
-      //change the currentINdex to the new safe square
+      //change the currentINdex to the new safe square - move into that space
       ghost.currentIndex +=  direction
       //redraw the ghost in the new safe space
       squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
