@@ -81,6 +81,7 @@ function movePacman(e) {
       //check if pacman is in a square where the number is divisible by  the width and doesn't leave a reminder of 0
       if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall') && !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair')) {
         pacmanCurrentIndex -= 1
+        //TODO fix
         squares[pacmanCurrentIndex].classList.add('pac-man-left')
       }
       //check if pacman is in the left exit
@@ -178,14 +179,14 @@ function moveGhost(ghost){
       ghost.currentIndex +=  direction
       //redraw the ghost in the new safe space
       squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
-   
+
 
       //else find a new direction to try
     }else direction = directions[Math.floor(Math.random() * directions.length)]
 
     //if ghost is currently scared
     if(ghost.isScared) squares[ghost.currentIndex].classList.add('scared-ghost')
-    
+
     //if ghost's scared and pacman runs into it
     if(ghost.isScared && squares[ghost.currentIndex].classList.contains('pac-man')){
         squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
@@ -195,7 +196,7 @@ function moveGhost(ghost){
   }
 
   }, ghost.speed)
-    
+
 }
 
 //check for game over
