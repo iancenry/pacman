@@ -165,7 +165,6 @@ ghosts.forEach(ghost => moveGhost(ghost))
 
 
 function moveGhost(ghost){
-  // can go 1 index back, 1 index forward 1 index down, 1 square down(width), 1 square up
   const directions = [-1, +1, width, -width]
   let direction =  directions[Math.floor(Math.random() * directions.length)]
 
