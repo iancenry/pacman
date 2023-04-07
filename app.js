@@ -71,7 +71,7 @@ createBoard()
 
 function startGame() {
   //move the Ghosts randomly
-  //TODO try adding smart moves
+  //TODO try adding smart moves to the ghosts to find shortest route to pacman
   ghosts.forEach(ghost => moveGhost(ghost))
   document.addEventListener('keyup', movePacman)
 }
