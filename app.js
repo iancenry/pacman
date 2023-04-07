@@ -1,5 +1,5 @@
 //TODO what are these for: gameOverId, checkWinId, leftId, rightId, upId, downId
-//TODO add pause button
+//TODO add functionality to pause button
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
   startButton = document.getElementById('start-button'),
