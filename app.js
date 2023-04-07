@@ -1,5 +1,6 @@
 //TODO what are these for: gameOverId, checkWinId, leftId, rightId, upId, downId
 //TODO add functionality to pause button
+// TODO fix eating a scared ghost since when i eat it sometimes you pass through like nothing happened
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
   startButton = document.getElementById('start-button'),
