@@ -71,6 +71,33 @@ createBoard()
 let pacmanCurrentIndex = 490
 squares[pacmanCurrentIndex].classList.add('pac-man')
 
+function goLeft(){
+  //check if pacman is in a square where the number is divisible by  the width and doesn't leave a reminder of 0
+  if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall') && !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair')) {
+    pacmanCurrentIndex -= 1
+    //TODO fix - try removing the class in the prev location after a move
+    squares[pacmanCurrentIndex].classList.add('pac-man-left')
+  }
+  //check if pacman is in the left exit
+  if((pacmanCurrentIndex - 1) === 363) pacmanCurrentIndex = 391
+}
+
+function goUp(){
+  //if pacman is currently in a square where the index num if you take away 28(width) and it's > 0 you're allowed to keep moving up(one whole width down the array)
+  if (pacmanCurrentIndex - width >= 0 && !squares[pacmanCurrentIndex - width].classList.contains('wall') && !squares[pacmanCurrentIndex - width].classList.contains('ghost-lair')) pacmanCurrentIndex -= width
+}
+
+function goRight(){
+  if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall') && !squares[pacmanCurrentIndex + 1].classList.contains('ghost-lair')) pacmanCurrentIndex += 1
+  //check if pacman is in the right exit
+  if((pacmanCurrentIndex + 1) === 392) pacmanCurrentIndex = 364
+}
+
+function goDown(){
+  if (pacmanCurrentIndex + width < width * width && !squares[pacmanCurrentIndex + width].classList.contains('wall') && !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair')) pacmanCurrentIndex += width
+
+}
+
 //move pac-man with keyboard events
 function movePacman(e) {
   //remove pacman from square you are currently in
@@ -78,26 +105,16 @@ function movePacman(e) {
 
   switch (e.key) {
     case 'ArrowLeft':
-      //check if pacman is in a square where the number is divisible by  the width and doesn't leave a reminder of 0
-      if (pacmanCurrentIndex % width !== 0 && !squares[pacmanCurrentIndex - 1].classList.contains('wall') && !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair')) {
-        pacmanCurrentIndex -= 1
-        //TODO fix
-        squares[pacmanCurrentIndex].classList.add('pac-man-left')
-      }
-      //check if pacman is in the left exit
-      if((pacmanCurrentIndex - 1) === 363) pacmanCurrentIndex = 391
+        goLeft()
       break
-    //if pacman is currently in a square where the index num if you take away 28(width) and it's > 0 you're allowed to keep moving up(one whole width down the array)
-    case 'ArrowUp':
-      if (pacmanCurrentIndex - width >= 0 && !squares[pacmanCurrentIndex - width].classList.contains('wall') && !squares[pacmanCurrentIndex - width].classList.contains('ghost-lair')) pacmanCurrentIndex -= width
+      case 'ArrowUp':
+        goUp()      
       break
     case 'ArrowRight':
-      if (pacmanCurrentIndex % width < width - 1 && !squares[pacmanCurrentIndex + 1].classList.contains('wall') && !squares[pacmanCurrentIndex + 1].classList.contains('ghost-lair')) pacmanCurrentIndex += 1
-      //check if pacman is in the right exit
-      if((pacmanCurrentIndex + 1) === 392) pacmanCurrentIndex = 364
+        goRight()
       break
     case 'ArrowDown':
-      if (pacmanCurrentIndex + width < width * width && !squares[pacmanCurrentIndex + width].classList.contains('wall') && !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair')) pacmanCurrentIndex += width
+      goDown()
       break
   }
 
