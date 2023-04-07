@@ -78,7 +78,7 @@ function startGame() {
   document.addEventListener('keyup', movePacman)
 }
 startButton.addEventListener('click', startGame)
-pauseButton.removeEventListener('click', startGame)
+// pauseButton.removeEventListener('click', startGame)
 
 //starting position of pac-man
 let pacmanCurrentIndex = 490
@@ -215,9 +215,6 @@ ghosts.forEach(ghost => {
   squares[ghost.currentIndex].classList.add(ghost.className)
   squares[ghost.currentIndex].classList.add('ghost')
 })
-
-//move ghosts randomly
-// ghosts.forEach(ghost => moveGhost(ghost))
 
 
 function moveGhost(ghost){
