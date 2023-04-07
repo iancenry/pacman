@@ -114,13 +114,17 @@ h4 {
   line-height: 50%;
 }
 
-#start-button {
+#start-button, #pause-button {
   height: 25px;
   width: 80px;
   background-color: red;
   font-family: 'IBM Plex Mono', monospace;
   color: #ddf9c1;
   text-align: center;
-  margin-left: 240px;
+  margin-left: 200px;
   margin-top: 10px;
+}
+
+#pause-button{
+  margin-left: 10px;
 }

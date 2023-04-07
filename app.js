@@ -3,6 +3,7 @@
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
   startButton = document.getElementById('start-button'),
+  pauseButton = document.getElementById('pause-button'),
   width = 28 // 28 * 28 = 784 squares
 let score = 0;
 
@@ -77,6 +78,7 @@ function startGame() {
   document.addEventListener('keyup', movePacman)
 }
 startButton.addEventListener('click', startGame)
+pauseButton.removeEventListener('click', startGame)
 
 //starting position of pac-man
 let pacmanCurrentIndex = 490
