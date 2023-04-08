@@ -67,10 +67,10 @@ body {
   background-image: url('images/scared-ghost.png');
 }
 
-.pac-man {
+/* .pac-man {
   background-image: url('images/pacman.png');
   border-radius: 10px;
-}
+} */
 
 .pac-man-left {
   background-image: url('images/pacman.png');
