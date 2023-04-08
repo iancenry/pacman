@@ -1,6 +1,5 @@
 //TODO what are these for: gameOverId, checkWinId, leftId, rightId, upId, downId
 //TODO add functionality to pause button
-//TODO after winning change the start button to restart to reset to new game
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
   startButton = document.getElementById('start-button'),
@@ -73,6 +72,7 @@ function createBoard() {
 createBoard()
 
 function startGame() {
+  startButton.removeEventListener('click', startGame)
   //move the Ghosts randomly
   //TODO try adding smart moves to the ghosts to find shortest route to pacman
   ghosts.forEach(ghost => moveGhost(ghost))
@@ -258,9 +258,16 @@ function checkForGameOver(){
 
 //check for win
 function checkForWin(){
-  if(score >= 500){
+  if(score >= 2){
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
     document.removeEventListener('keyup', movePacman)
     scoreDisplay.innerHTML = 'YOU WON'
+    startButton.innerHTML = 'Restart'
+  }  
+
+  if(startButton.innerHTML === 'Restart'){
+    startButton.addEventListener('click', ()=>{
+      console.log('restart')
+    })
   }
 }
