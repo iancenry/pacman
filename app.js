@@ -1,6 +1,5 @@
 //TODO what are these for: gameOverId, checkWinId, leftId, rightId, upId, downId
 //TODO add functionality to pause button
-// TODO fix eating a scared ghost since when i eat it sometimes you pass through like nothing happened
 //TODO after winning change the start button to restart to reset to new game
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
@@ -265,7 +264,7 @@ function checkForGameOver(){
 
 //check for win
 function checkForWin(){
-  if(score >= 300){
+  if(score >= 500){
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
     document.removeEventListener('keyup', movePacman)
     scoreDisplay.innerHTML = 'YOU WON'
