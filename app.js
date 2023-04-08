@@ -1,6 +1,7 @@
 //TODO what are these for: gameOverId, checkWinId, leftId, rightId, upId, downId
 //TODO add functionality to pause button
 // TODO fix eating a scared ghost since when i eat it sometimes you pass through like nothing happened
+//TODO after winning change the start button to restart to reset to new game
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
   startButton = document.getElementById('start-button'),
@@ -228,7 +229,7 @@ function moveGhost(ghost){
       //you can go here
       //remove all ghost related classes
       squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
-      //change the currentINdex to the new safe square - move into that space
+      //change the currentIndex to the new safe square - move into that space
       ghost.currentIndex +=  direction
       //redraw the ghost in the new safe space
       squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
@@ -264,7 +265,7 @@ function checkForGameOver(){
 
 //check for win
 function checkForWin(){
-  if(score >= 274){
+  if(score >= 300){
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
     document.removeEventListener('keyup', movePacman)
     scoreDisplay.innerHTML = 'YOU WON'
