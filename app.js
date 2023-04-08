@@ -1,4 +1,5 @@
 //TODO add functionality to pause button
+// TODO try adding different tunes on start, eaten etc - refer to google's pacman doodle.
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
   startButton = document.getElementById('start-button'),
@@ -156,7 +157,6 @@ function movePacman(e) {
 
   pacDotEaten()
   powerPelletEaten()
-  checkForGameOver()
   checkForWin()
 }
 
@@ -240,6 +240,8 @@ function moveGhost(ghost){
         score += 100
         squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
   }
+
+  checkForGameOver()
 
   }, ghost.speed)
 
