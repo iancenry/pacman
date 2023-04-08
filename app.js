@@ -1,4 +1,3 @@
-//TODO what are these for: gameOverId, checkWinId, leftId, rightId, upId, downId
 //TODO add functionality to pause button
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
@@ -219,12 +218,11 @@ function moveGhost(ghost){
   ghost.timerId = setInterval(()=>{
     //if next square your ghost is going to go in does not contain a wall and a ghost, you can go there
     if(!squares[ghost.currentIndex + direction].classList.contains('wall') && !squares[ghost.currentIndex + direction].classList.contains('ghost')){
-      //you can go here
       //remove all ghost related classes
       squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
       //change the currentIndex to the new safe square - move into that space
       ghost.currentIndex +=  direction
-      //redraw the ghost in the new safe space
+      //redraw the ghost in the new space
       squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
 
 
@@ -251,14 +249,13 @@ function checkForGameOver(){
   if(squares[pacmanCurrentIndex].classList.contains('ghost') && !squares[pacmanCurrentIndex].classList.contains('scared-ghost')){
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
     document.removeEventListener('keyup', movePacman)
-    // setTimeout(() => alert('Game Over'), 500)
     scoreDisplay.innerHTML = 'GAME OVER'
   }
 }
 
 //check for win
 function checkForWin(){
-  if(score >= 2){
+  if(score >= 2){ //TODO update to 500
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
     document.removeEventListener('keyup', movePacman)
     scoreDisplay.innerHTML = 'YOU WON'
@@ -267,6 +264,8 @@ function checkForWin(){
 
   if(startButton.innerHTML === 'Restart'){
     startButton.addEventListener('click', ()=>{
+      startButton.innerHTML = 'Start'
+      //TODO reload page
       console.log('restart')
     })
   }
