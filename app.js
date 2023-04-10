@@ -253,22 +253,27 @@ function checkForGameOver(){
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
     document.removeEventListener('keyup', movePacman)
     scoreDisplay.innerHTML = 'GAME OVER'
+    startButton.innerHTML = 'Restart'
   }
+
+  reloadPage()
 }
 
 //check for win
 function checkForWin(){
-  if(score >= 2){ //TODO update to 500
+  if(score >= 500){
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
     document.removeEventListener('keyup', movePacman)
     scoreDisplay.innerHTML = 'YOU WON'
     startButton.innerHTML = 'Restart'
-  }  
+  } 
+  
+  reloadPage()  
+}
 
+function reloadPage(){
   if(startButton.innerHTML === 'Restart'){
     startButton.addEventListener('click', ()=>{
-      startButton.innerHTML = 'Start'
-      //TODO reload page
       location.reload()
     })
   }
