@@ -269,7 +269,7 @@ function checkForWin(){
     startButton.addEventListener('click', ()=>{
       startButton.innerHTML = 'Start'
       //TODO reload page
-      console.log('restart')
+      location.reload()
     })
   }
 }
