@@ -28,12 +28,6 @@ body {
   z-index: 5;
 }
 
-/* .pac-dot{
-    background-color: green;
-    border: 5px solid white;
-    box-sizing: border-box;
-} */
-
 .wall {
   background-color: blue;
 }
