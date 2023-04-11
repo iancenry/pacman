@@ -1,4 +1,3 @@
-//TODO add functionality to pause button
 // TODO try adding different tunes on start, eaten etc - refer to google's pacman doodle.
 const grid = document.querySelector('.grid'),
   scoreDisplay = document.querySelector('#score'),
@@ -99,7 +98,7 @@ function goLeft(){
   if (!squares[pacmanCurrentIndex - 1].classList.contains('wall') && !squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair')) {
     removePacman()
     pacmanCurrentIndex -= 1
-    //check if pacman is in the left exit
+    //if pacman is in the left exit
     if((pacmanCurrentIndex - 1) === 363) pacmanCurrentIndex = 391
     
   }
@@ -133,7 +132,6 @@ function goDown(){
 
 }
 
-//move pac-man with keyboard events
 function movePacman(e) {
   //remove pacman from square you are currently in
   squares[pacmanCurrentIndex].classList.remove('pac-man')
@@ -170,7 +168,7 @@ function pacDotEaten(){
   }
 }
 
-//what happens when you eat a power-pellet - pac-man can hurt them
+//when pacman eats a power-pellet
 function powerPelletEaten(){
   if(squares[pacmanCurrentIndex].classList.contains('power-pellet')){
     score += 10
@@ -180,12 +178,12 @@ function powerPelletEaten(){
   }
 }
 
-//make the ghosts stop appearing as aquamarine
+//make the ghosts stop appearing as aquamarine (scared)
 function unScareGhosts(){
   ghosts.forEach(ghost => ghost.isScared = false)
 }
 
-//create our Ghost template - speed(milliseconds)
+// Ghost template - speed(milliseconds)
 class Ghost{
   constructor(className, startIndex, speed){
     this.className = className;
@@ -217,9 +215,9 @@ function moveGhost(ghost){
   let direction =  directions[Math.floor(Math.random() * directions.length)]
 
   ghost.timerId = setInterval(()=>{
-    //if next square your ghost is going to go in does not contain a wall and a ghost, you can go there
+    //if next square your ghost is going to go in does not contain a wall & ghost, you can go there
     if(!squares[ghost.currentIndex + direction].classList.contains('wall') && !squares[ghost.currentIndex + direction].classList.contains('ghost')){
-      //remove all ghost related classes
+      //remove ghost related classes
       squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
       //change the currentIndex to the new safe square - move into that space
       ghost.currentIndex +=  direction
@@ -230,10 +228,10 @@ function moveGhost(ghost){
       //else find a new direction to try
     }else direction = directions[Math.floor(Math.random() * directions.length)]
 
-    //if ghost is currently scared
+    //ghost is currently scared
     if(ghost.isScared) squares[ghost.currentIndex].classList.add('scared-ghost')
 
-    //if ghost's scared and pacman runs into it
+    //ghost's scared and pacman runs into it
     if(ghost.isScared && (squares[ghost.currentIndex].classList.contains('pac-man') && squares[ghost.currentIndex] === squares[pacmanCurrentIndex]) ){
         squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
         ghost.currentIndex = ghost.startIndex
@@ -247,7 +245,7 @@ function moveGhost(ghost){
 
 }
 
-//check for game over
+
 function checkForGameOver(){
   if(squares[pacmanCurrentIndex].classList.contains('ghost') && !squares[pacmanCurrentIndex].classList.contains('scared-ghost')){
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
@@ -259,7 +257,7 @@ function checkForGameOver(){
   reloadPage()
 }
 
-//check for win
+
 function checkForWin(){
   if(score >= 500){
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
@@ -267,7 +265,7 @@ function checkForWin(){
     scoreDisplay.innerHTML = 'YOU WON'
     startButton.innerHTML = 'Restart'
   } 
-  
+
   reloadPage()  
 }
 
