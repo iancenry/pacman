@@ -9,8 +9,7 @@
 * Dependencies used: 
 
 **NB:** For a great minimal setup of this kind of project check out: add link to YT vid
-> TODO Implement AI
-> TODO add environment vars
+
 
 ### MIT Licence
 
