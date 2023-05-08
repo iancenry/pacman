@@ -280,14 +280,21 @@ function reloadPage(){
 // Alan AI voice command functionality
 let alanBtnInstance = alanBtn({
   key: "7c089475438648f356eeec80748bd72b2e956eca572e1d8b807a3e2338fdd0dc/stage",
-  onCommand: function (commandData) {
-      if (commandData.command === "go:back") {
-          //call client code that will react on the received command
-      }
-  },
-  onCommand: function (commandData) {
-    if(commandData.command === 'go-left') goLeft()
+  onCommand: (commandData) => {
+    if (commandData.command === 'go-left') goLeft()
+    if (commandData.command === 'go-right') goRight()
+    if (commandData.command === 'go-down') goDown()
+    if (commandData.command === 'go-up') goUp()
   },
   rootEl: document.getElementById("alan-btn"),
 });
+
+
+// let alanBtnInstance = alanBtn({
+//   key: "7c089475438648f356eeec80748bd72b2e956eca572e1d8b807a3e2338fdd0dc/stage",
+//   onCommand: function (commandData) {
+//     if(commandData.command === 'go-left') goLeft()
+//   },
+//   rootEl: document.getElementById("alan-btn"),
+// });
 
