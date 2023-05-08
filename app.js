@@ -4,7 +4,7 @@ const grid = document.querySelector('.grid'),
   startButton = document.getElementById('start-button'),
   pauseButton = document.getElementById('pause-button'),
   width = 28 // 28 * 28 = 784 squares
-let score = 0;
+let score = 0, gameOverId, checkWinId;
 
 // a grid with 784 squares
 const layout = [
@@ -76,7 +76,11 @@ function startGame() {
   //TODO try adding smart moves to the ghosts to find shortest route to pacman
   ghosts.forEach(ghost => moveGhost(ghost))
   document.addEventListener('keyup', movePacman)
+  // check for lose/win after every 100ms
+  checkWinId = setInterval(checkForWin, 100)
+  gameOverId = setInterval(checkForGameOver, 100)
 }
+
 startButton.addEventListener('click', startGame)
 // pauseButton.removeEventListener('click', startGame)
 
@@ -252,6 +256,10 @@ function checkForGameOver(){
     document.removeEventListener('keyup', movePacman)
     scoreDisplay.innerHTML = 'GAME OVER'
     startButton.innerHTML = 'Restart'
+
+    //stop checking for lose or win
+    clearInterval(gameOverId)
+    clearInterval(checkWinId)
   }
 
   reloadPage()
@@ -264,6 +272,8 @@ function checkForWin(){
     document.removeEventListener('keyup', movePacman)
     scoreDisplay.innerHTML = 'YOU WON'
     startButton.innerHTML = 'Restart'
+    clearInterval(gameOverId)
+    clearInterval(checkWinId)
   } 
 
   reloadPage()  
