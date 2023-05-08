@@ -1,5 +1,5 @@
 # Pacman Game
-- This is a pacman game made with vanilla js and some AI.
+- This is a pacman game made with vanilla js and an AI for voice commands.
 
 ## Quick Setup
 1. Fork then clone the project into local machine 🍴
@@ -7,10 +7,7 @@
 1. For the 
 1. Happy coding 💻
 
-* Dependencies used:  `Alan AI`, html-webpack-plugin,  dotenv-webpack, @babel/core, babel-preset-env
-  Loaders :  webpack-cli webpack-dev-server css-loader sass-loader babel-loader node-sass style-loader url-loader
-
-**NB:** For a great minimal setup of this kind of project check out: add link to YT vid
+* Dependencies used:  `Alan AI`, `html-webpack-plugin`,  `dotenv-webpack`, `@babel/core`, `babel-preset-env`; Loaders :  `webpack-cli`, `webpack-dev-server`, `css-loader`, `sass-loader`, `babel-loader`, `node-sass`, `style-loader`, `url-loader`.
 
 
 ### MIT Licence
