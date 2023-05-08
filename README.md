@@ -4,9 +4,11 @@
 ## Quick Setup
 1. Fork then clone the project into local machine 🍴
 1. Run `npm install` in the root folder to install all the necessary dependencies 👩‍💻
+1. For the 
 1. Happy coding 💻
 
-* Dependencies used: 
+* Dependencies used:  `Alan AI`, html-webpack-plugin,  dotenv-webpack, @babel/core, babel-preset-env
+  Loaders :  webpack-cli webpack-dev-server css-loader sass-loader babel-loader node-sass style-loader url-loader
 
 **NB:** For a great minimal setup of this kind of project check out: add link to YT vid
 
