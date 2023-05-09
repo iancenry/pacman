@@ -284,11 +284,11 @@ function reloadPage(){
   }
 }
 
-// Alan AI voice command functionality
+//Alan AI voice command functionality
 let alanBtnInstance = alanBtn({
   key: "7c089475438648f356eeec80748bd72b2e956eca572e1d8b807a3e2338fdd0dc/stage",
-  onCommand: (commandData) => {
-    if (commandData.command === 'start') startGame()
+  onCommand: function (commandData){
+    if (commandData.command === 'start') {startGame()}
     if (commandData.command === 'go-left') goLeft()
     if (commandData.command === 'go-right') goRight()
     if (commandData.command === 'go-down') goDown()
