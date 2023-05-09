@@ -37,34 +37,29 @@ body {
   z-index: -1;
 }
 
+.blinky, .pinky, .inky, .clyde{
+  z-index: +2;
+}
+
 .blinky {
   background-image: url('images/blinky.png');
-  z-index: +2;
 }
 
 .pinky {
   background-image: url('images/pinky.png');
-  z-index: +2;
 }
 
 .inky {
   background-image: url('images/inky.png');
-  z-index: +2;
 }
 
 .clyde {
   background-image: url('images/clyde.png');
-  z-index: +2;
 }
 
 .scared-ghost {
   background-image: url('images/scared-ghost.png');
 }
-
-/* .pac-man {
-  background-image: url('images/pacman.png');
-  border-radius: 10px;
-} */
 
 .pac-man-left {
   background-image: url('images/pacman.png');
