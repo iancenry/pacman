@@ -2,26 +2,29 @@
   "name": "pacman",
   "version": "1.0.0",
   "description": "- This is a pacman game made with vanilla js and some AI.",
-  "main": "index.js",
+  "main": "./src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "build": "webpack",
+    "serve": "webpack-dev-server --mode=development", 
+    "deploy": "npm run build"
   },
   "author": "",
   "license": "ISC",
   "keywords": [],
   "dependencies": {
-    "@babel/core": "^7.21.8",
-    "babel-loader": "^9.1.2",
-    "babel-preset-env": "^1.7.0",
-    "css-loader": "^6.7.3",
-    "dotenv-webpack": "^8.0.1",
-    "html-webpack-plugin": "^5.5.1",
-    "node-sass": "^8.0.0",
-    "sass-loader": "^13.2.2",
-    "style-loader": "^3.3.2",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.1.0",
+    "dotenv-webpack": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "url-loader": "^4.1.1",
-    "webpack": "^5.82.0",
-    "webpack-cli": "^5.1.0",
-    "webpack-dev-server": "^4.15.0"
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   }
 }
