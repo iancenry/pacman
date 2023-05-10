@@ -1,5 +1,7 @@
 # Pacman Game
-- This is a pacman game made with vanilla js and an AI for voice commands.
+- This is a pacman game made with vanilla js and AI voice commands.
+
+ ![1](https://github.com/iancenry/pacman/assets/77986239/6b5a568b-10e0-409d-91a3-41e98913666d)
 
 ## Quick Setup
 1. Fork then clone the project into local machine 🍴
